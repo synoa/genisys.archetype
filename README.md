@@ -27,8 +27,9 @@ You can find an extended how to on our [internal confluence](https://synoagmbh.a
 
 
 
-# How to update the archetype
-
+# How to update the archetype`
+``
 * Make your changes
 * Change the version in `pom.xml` to the same version as your git tag`
 * Tag your new version `git tag -a `
+* If this is a stable release: Update the `README.md`
