@@ -26,6 +26,7 @@
         <include>*.properties</include>
         <include>docker-compose.yml</include>
         <include>Dockerfile</include>
+        <include>README.md</include>
       </includes>
     </fileSet>
 
