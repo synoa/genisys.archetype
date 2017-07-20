@@ -5,11 +5,11 @@
 
     <groupId>de.synoa.genisys</groupId>
     <artifactId>archetype</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>maven-archetype</packaging>
 
     <name>de.synoa.genisys.archetype</name>
-    <description>Genisys of all Microservices ;)</description>
+    <description>Genisys of all Synoa Microservices</description>
 
     <build>
         <extensions>
