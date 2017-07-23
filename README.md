@@ -42,6 +42,7 @@ Execute `mvn clean install`, which builds the archetype and executes the archety
 * Execute all maven goals as defined in `src/test/resources/projects.basic/goal.txt`
 
 When all of that was successful you can find the generated `de.synoa.genisys.archetype.test` in `target/test-classes/projects/basic/project/test`.
+There you can execute `docker-compose up` to start all docker containers and then `mvn spring-boot:run` to start the service.
 
 ## Versioning
 
