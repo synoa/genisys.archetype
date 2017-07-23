@@ -13,6 +13,20 @@
 
   <fileSets>
 
+    <!-- Root files -->
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>*.properties</include>
+        <include>*.yaml</include>
+        <include>*.yml</include>
+        <include>docker-compose.yml</include>
+        <include>Dockerfile</include>
+        <include>README.md</include>
+      </includes>
+    </fileSet>
+
+    <!-- Source -->
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/main/java</directory>
       <includes>
@@ -20,13 +34,37 @@
       </includes>
     </fileSet>
 
-    <fileSet filtered="true" packaged="false" encoding="UTF-8">
-      <directory></directory>
+    <!-- Source resources -->
+    <fileSet filtered="false" packaged="false" encoding="UTF-8">
+      <directory>src/main/resources</directory>
       <includes>
-        <include>*.properties</include>
-        <include>docker-compose.yml</include>
-        <include>Dockerfile</include>
-        <include>README.md</include>
+        <include>**/*.xsd</include>
+        <include>**/*.yaml</include>
+      </includes>
+    </fileSet>
+
+    <!-- Test -->
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/test/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+
+    <!-- Test resources: Generated -->
+    <fileSet filtered="true" packaged="false" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.properties</include>
+      </includes>
+    </fileSet>
+
+    <!-- Test resources: Copied -->
+    <fileSet filtered="false" packaged="false" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*.xsd</include>
+        <include>**/*.yaml</include>
       </includes>
     </fileSet>
 
