@@ -17,6 +17,7 @@
     <fileSet filtered="true" packaged="false" encoding="UTF-8">
       <directory></directory>
       <includes>
+        <include>*.gitignore</include>
         <include>*.properties</include>
         <include>*.yaml</include>
         <include>*.yml</include>

@@ -1,14 +1,14 @@
 # Purpose
 
-This is the basis-archetype for all Microservices developed at Synoa. 
+This is the basis-archetype for all Microservices developed at Synoa.
 
 
 
 # Release
 
-## Stable 
+## Stable
 
-* 1.0.3
+* 1.0.4
 
 ## Old
 
@@ -22,7 +22,7 @@ You can find old releases [here](https://github.com/synoa/genisys.archetype/rele
 * Clone this repository
 * Go into "genisys.archetype"
 * Execute `mvn clean install`
-* Generate your Microservice by executing `mvn archetype:generate -DarchetypeGroupId=de.synoa.genisys -DarchetypeArtifactId=archetype -DarchetypeVersion=1.0.3`
+* Generate your Microservice by executing `mvn archetype:generate -DarchetypeGroupId=de.synoa.genisys -DarchetypeArtifactId=archetype -DarchetypeVersion=1.0.4`
 
 ## Extended
 
@@ -52,4 +52,3 @@ There you can execute `docker-compose up` to start all docker containers and the
     * `README.md` under "Basic / Generate your Microservice by executing" in "-DarchetypeVersion="
     * `src/test/resources/projects.basic/archetype.properties` in key `version`
 * Create a new tag with the version: `git tag -a`
-
