@@ -1,9 +1,9 @@
 FROM openjdk:8-jre-alpine
 LABEL maintainer "Synoa GmbH <we@synoa.de>"
 
-ENV JAVA_OPTS="-Xms64m -Xmx128m"
+ENV _JAVA_OPTIONS="-Xms64m -Xmx128m"
 
-ENTRYPOINT exec /usr/bin/java $JAVA_OPTS -jar /${artifactId}.jar
+ENTRYPOINT ["/usr/bin/java", "-jar", "/${artifactId}.jar"]
 
 ADD target/${artifactId}.jar /
 ADD application.properties /
