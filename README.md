@@ -8,7 +8,7 @@ This is the basis-archetype for all Microservices developed at Synoa.
 
 ## Stable
 
-* 1.0.4
+* 1.0.5
 
 ## Old
 
