@@ -8,7 +8,7 @@ This is the basis-archetype for all Microservices developed at Synoa.
 
 ## Stable
 
-* 1.0.5
+* 1.0.6
 
 ## Old
 
@@ -22,7 +22,7 @@ You can find old releases [here](https://github.com/synoa/genisys.archetype/rele
 * Clone this repository
 * Go into "genisys.archetype"
 * Execute `mvn clean install`
-* Generate your Microservice by executing `mvn archetype:generate -DarchetypeGroupId=de.synoa.genisys -DarchetypeArtifactId=archetype -DarchetypeVersion=1.0.5`
+* Generate your Microservice by executing `mvn archetype:generate -DarchetypeGroupId=de.synoa.genisys -DarchetypeArtifactId=archetype -DarchetypeVersion=1.0.6`
 
 ## Extended
 
