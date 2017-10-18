@@ -13,7 +13,7 @@ public class DefaultLogger {
 
     @Bean
     public Logger createDefaultLogger() {
-        return LoggerFactory.getLogger("${groupId}.${artifactId}");
+        return LoggerFactory.getLogger(App.class.getPackage().getName());
     }
 
 }
