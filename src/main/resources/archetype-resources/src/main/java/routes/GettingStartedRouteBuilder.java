@@ -20,7 +20,7 @@ public class GettingStartedRouteBuilder extends RouteBuilder {
 
         from("activemq:{{activemq.queue.prefix}}talk").routeId("Talk Route")
             .log("${body}")
-            .to("mongodb:mongoBean?database={{mongodb.database}}&operation=getDbStats")
+            .to("mongodb:mongo?database={{spring.data.mongodb.database}}&operation=getDbStats")
             .log("${body}")
         ;
 
