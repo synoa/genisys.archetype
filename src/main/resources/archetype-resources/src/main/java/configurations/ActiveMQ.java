@@ -10,6 +10,7 @@ import org.apache.camel.component.jms.JmsConfiguration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import ${package}.App;
 
@@ -20,23 +21,13 @@ public class ActiveMQ {
 
     private static final String TOPIC_BASE = "activemq:topic:{{activemq.queue.prefix}}.";
 
-    @Bean(name = "pooledConnectionFactory", initMethod = "start", destroyMethod = "stop")
-    public PooledConnectionFactory createActiveMQConnectionPool(@Value("${activemq.url}") String brokerURL) {
-
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerURL);
-        connectionFactory.setClientID(App.class.getPackage().getName());
-
-        PooledConnectionFactory connectionPool = new PooledConnectionFactory(connectionFactory);
-        connectionPool.setMaxConnections(1);
-        connectionPool.setReconnectOnException(true);
-        
-        return connectionPool;
-    }
+    @Autowired
+    private PooledConnectionFactory connectionPool;
 
     @Bean(name = "activemq")
-    public ActiveMQComponent createActiveMQComponent(@Value("${activemq.url}") String brokerURL) {
+    public ActiveMQComponent createActiveMQComponent() {
 
-        JmsConfiguration jmsConfiguration = new JmsConfiguration(createActiveMQConnectionPool(brokerURL));
+        JmsConfiguration jmsConfiguration = new JmsConfiguration(connectionPool);
         jmsConfiguration.setConcurrentConsumers(1);
 
         ActiveMQComponent activeMQComponent = new ActiveMQComponent();
@@ -46,4 +37,11 @@ public class ActiveMQ {
         return activeMQComponent;
     }
 
+    public PooledConnectionFactory getConnectionPool() {
+        return connectionPool;
+    }
+
+    public void setConnectionPool(PooledConnectionFactory connectionPool) {
+        this.connectionPool = connectionPool;
+    }
 }
