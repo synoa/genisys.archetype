@@ -24,6 +24,7 @@
         <include>docker-compose.yml</include>
         <include>Dockerfile</include>
         <include>README.md</include>
+        <include>version.sh</include>
       </includes>
     </fileSet>
 
