@@ -16,9 +16,9 @@ import ${package}.App;
 @Configuration
 public class ActiveMQ {
 
-    private static final String QUEUE_BASE = "activemq:{{activemq.queue.prefix}}.";
+    private static final String QUEUE_BASE = "activemq:";
 
-    private static final String TOPIC_BASE = "activemq:topic:{{activemq.queue.prefix}}.";
+    private static final String TOPIC_BASE = "activemq:topic:";
 
     @Bean(name = "pooledConnectionFactory", initMethod = "start", destroyMethod = "stop")
     public PooledConnectionFactory createActiveMQConnectionPool(@Value("${activemq.url}") String brokerURL) {
@@ -29,7 +29,7 @@ public class ActiveMQ {
         PooledConnectionFactory connectionPool = new PooledConnectionFactory(connectionFactory);
         connectionPool.setMaxConnections(1);
         connectionPool.setReconnectOnException(true);
-        
+
         return connectionPool;
     }
 
