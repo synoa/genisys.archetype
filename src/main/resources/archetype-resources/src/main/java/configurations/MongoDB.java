@@ -12,9 +12,13 @@ import org.springframework.context.annotation.Configuration;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
+import org.apache.camel.component.mongodb3.MongoDbOperation;
 
 @Configuration
 public class MongoDB {
+
+    private static final String MONGODB_BASE = "mongodb3:mongoBean?database={{mongodb.database}}";
+    public static final String MONGODB_DB_STATS = MONGODB_BASE + "&operation=" + MongoDbOperation.getDbStats;
 
     @Bean(name = "mongoBean")
     public MongoClient createMongoClient(@Value("${mongodb.host}") String host, @Value("${mongodb.port}") int port,
