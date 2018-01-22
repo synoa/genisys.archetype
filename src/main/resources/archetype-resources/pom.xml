@@ -69,7 +69,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-mongodb</artifactId>
+            <artifactId>camel-mongodb3</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
@@ -128,7 +128,7 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>${git.commit.id.version}</version>
                 <executions>
                     <execution>
                         <id>get-the-git-infos</id>

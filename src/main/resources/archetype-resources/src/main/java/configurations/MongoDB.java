@@ -11,10 +11,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import org.apache.camel.component.mongodb3.MongoDbOperation;
+
 import java.util.Collections;
 
 @Configuration
 public class MongoDB {
+
+    private static final String MONGODB_BASE = "mongodb3:mongoBean?database={{mongodb.database}}";
+    public static final String MONGODB_DB_STATS = MONGODB_BASE + "&operation=" + MongoDbOperation.getDbStats;
 
     @Bean(name = "mongoBean")
     public MongoClient createMongoClient(@Value("${mongodb.host}") String host, @Value("${mongodb.port}") int port,

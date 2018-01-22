@@ -6,6 +6,8 @@ package ${package}.routes;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
+import static ${package}.configurations.MongoDB.MONGODB_DB_STATS;
+
 @Component
 public class GettingStartedRouteBuilder extends RouteBuilder {
 
@@ -20,7 +22,7 @@ public class GettingStartedRouteBuilder extends RouteBuilder {
 
         from("activemq:{{activemq.queue.prefix}}talk").routeId("Talk Route")
             .log("${body}")
-            .to("mongodb:mongoBean?database={{mongodb.database}}&operation=getDbStats")
+            .to(MONGODB_DB_STATS)
             .log("${body}")
         ;
 
