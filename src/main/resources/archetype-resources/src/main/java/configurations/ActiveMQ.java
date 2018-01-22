@@ -41,7 +41,7 @@ public class ActiveMQ {
     @Bean(name = "activemqNoTx")
     public ActiveMQComponent createActiveMQComponentNoTransaction(@Value("${activemq.url}") String brokerURL) {
 
-        String clientId = App.class.getPackage().getName() + "noTx";
+        String clientId = App.class.getPackage().getName() + ".noTx";
         JmsConfiguration jmsConfiguration = new JmsConfiguration(createActiveMQConnectionPool(brokerURL, clientId));
         jmsConfiguration.setConcurrentConsumers(1);
 
