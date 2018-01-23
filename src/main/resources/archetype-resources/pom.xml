@@ -12,12 +12,11 @@
     <url>https://synoa.de/</url>
 
     <properties>
-        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
-        <spotify.dockerfile.plugin.version>1.3.4</spotify.dockerfile.plugin.version>
+        <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+        <spotify.dockerfile.plugin.version>1.3.6</spotify.dockerfile.plugin.version>
+        <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
+        <camel.version>2.20.0</camel.version>
         <git.commit.id.version>2.2.1</git.commit.id.version>
-
-        <spring.boot.version>1.5.4.RELEASE</spring.boot.version>
-        <camel.version>2.19.1</camel.version>
     </properties>
 
     <dependencyManagement>
@@ -69,7 +68,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-mongodb</artifactId>
+            <artifactId>camel-mongodb3</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
@@ -121,7 +120,7 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>${git.commit.id.version}</version>
                 <executions>
                     <execution>
                         <id>get-the-git-infos</id>
