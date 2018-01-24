@@ -10,7 +10,7 @@ import com.mongodb.client.MongoDatabase;
 @ChangeLog
 public class SchemaChangelog {
 
-    @ChangeSet(order = "001", author = "${package}", id = "initialVersion")
+    @ChangeSet(order = "001", author = "genisys.archetype", id = "initialVersion")
     public void initalVersion(MongoDatabase database) {
         database.createCollection("${artifactId}");
     }
