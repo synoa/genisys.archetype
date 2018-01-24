@@ -13,26 +13,13 @@ import org.springframework.context.annotation.Configuration;
 
 import org.apache.camel.component.mongodb3.MongoDbOperation;
 
-import java.util.Collections;
-
 @Configuration
 public class MongoDB {
 
-    private static final String MONGODB_BASE = "mongodb3:mongoBean?database={{mongodb.database}}";
+    private static final String MONGODB_BASE = "mongodb3:mongo?database={{spring.data.mongodb.database}}";
     public static final String MONGODB_DB_STATS = MONGODB_BASE + "&operation=" + MongoDbOperation.getDbStats;
 
-    @Bean(name = "mongoBean")
-    public MongoClient createMongoClient(@Value("${mongodb.host}") String host, @Value("${mongodb.port}") int port,
-            @Value("${mongodb.user}") String user, @Value("${mongodb.database}") String database,
-            @Value("${mongodb.password}") String password) {
-
-        if (user == null || user.isEmpty()) {
-            return new MongoClient(host, port);
-        }
-
-        ServerAddress address = new ServerAddress(host, port);
-        MongoCredential credential = MongoCredential.createCredential(user, database, password.toCharArray());
-        return new MongoClient(address, Collections.singletonList(credential));
+    private MongoDB() {
     }
 
     @Bean

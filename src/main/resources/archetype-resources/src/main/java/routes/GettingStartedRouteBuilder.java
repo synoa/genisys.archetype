@@ -17,10 +17,10 @@ public class GettingStartedRouteBuilder extends RouteBuilder {
 
         from("timer:helloworld?period=5000").routeId("Hello World Route")
             .setBody(constant("Hello Microservice World"))
-            .to("activemq:{{activemq.queue.prefix}}talk")
+            .to("activemq:{{activemq.queue.prefix}}.talk")
         ;
 
-        from("activemq:{{activemq.queue.prefix}}talk").routeId("Talk Route")
+        from("activemq:{{activemq.queue.prefix}}.talk").routeId("Talk Route")
             .log("${body}")
             .to(MONGODB_DB_STATS)
             .log("${body}")
