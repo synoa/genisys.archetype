@@ -3,18 +3,19 @@
 #set( $symbol_escape = '\' )
 package ${package}.configurations;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
+import ${package}.App;
 import org.apache.activemq.camel.component.ActiveMQComponent;
 import org.apache.activemq.pool.PooledConnectionFactory;
 import org.apache.camel.component.jms.JmsConfiguration;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import ${package}.App;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
 public class ActiveMQ {
+
+    @Autowired
+    private PooledConnectionFactory connectionPool;
 
     private static final String QUEUE_BASE = "activemq:{{activemq.queue.prefix}}.";
 
@@ -25,43 +26,30 @@ public class ActiveMQ {
     private static final String TOPIC_BASE_NO_TX = "activemqNoTx:topic:{{activemq.queue.prefix}}.";
 
     @Bean(name = "activemq")
-    public ActiveMQComponent createActiveMQComponent(@Value("${activemq.url}") String brokerURL) {
+    public ActiveMQComponent createActiveMQComponent() {
 
-        String clientId = App.class.getPackage().getName();
-        JmsConfiguration jmsConfiguration = new JmsConfiguration(createActiveMQConnectionPool(brokerURL, clientId));
+        JmsConfiguration jmsConfiguration = new JmsConfiguration(connectionPool);
         jmsConfiguration.setConcurrentConsumers(1);
 
         ActiveMQComponent activeMQComponent = new ActiveMQComponent();
         activeMQComponent.setConfiguration(jmsConfiguration);
         activeMQComponent.setTransacted(true);
+        activeMQComponent.setClientId(App.class.getPackage().getName());
 
         return activeMQComponent;
     }
 
     @Bean(name = "activemqNoTx")
-    public ActiveMQComponent createActiveMQComponentNoTransaction(@Value("${activemq.url}") String brokerURL) {
+    public ActiveMQComponent createActiveMQComponentNoTransaction() {
 
-        String clientId = App.class.getPackage().getName() + ".noTx";
-        JmsConfiguration jmsConfiguration = new JmsConfiguration(createActiveMQConnectionPool(brokerURL, clientId));
+        JmsConfiguration jmsConfiguration = new JmsConfiguration(connectionPool);
         jmsConfiguration.setConcurrentConsumers(1);
 
         ActiveMQComponent activeMQComponent = new ActiveMQComponent();
         activeMQComponent.setConfiguration(jmsConfiguration);
         activeMQComponent.setTransacted(false);
+        activeMQComponent.setClientId(App.class.getPackage().getName());
 
         return activeMQComponent;
     }
-
-    private PooledConnectionFactory createActiveMQConnectionPool(String brokerURL, String clientId) {
-
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerURL);
-        connectionFactory.setClientID(clientId);
-
-        PooledConnectionFactory connectionPool = new PooledConnectionFactory(connectionFactory);
-        connectionPool.setMaxConnections(1);
-        connectionPool.setReconnectOnException(true);
-
-        return connectionPool;
-    }
-
 }
