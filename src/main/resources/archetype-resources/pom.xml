@@ -17,6 +17,7 @@
         <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
         <camel.version>2.20.0</camel.version>
         <git.commit.id.version>2.2.1</git.commit.id.version>
+        <mongobee.version>0.13</mongobee.version>
     </properties>
 
     <dependencyManagement>
@@ -73,6 +74,13 @@
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-camel</artifactId>
+        </dependency>
+
+        <!-- Database Migration -->
+        <dependency>
+            <groupId>com.github.mongobee</groupId>
+            <artifactId>mongobee</artifactId>
+            <version>${mongobee.version}</version>
         </dependency>
 
         <!-- Dependencies for Tests -->
