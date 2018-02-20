@@ -17,7 +17,7 @@ public class GettingStartedRouteBuilder extends RouteBuilder {
 
         from("timer:helloworld?period=5000").routeId("Hello World Route")
             .setBody(constant("Hello {{greeting.name}}"))
-            .to("activemq:{{activemq.queue.prefix}}.talk")
+            .to("activemq:{{activemq.queue.prefix}}.talk").id("talkQueue")
         ;
 
         from("activemq:{{activemq.queue.prefix}}.talk").routeId("Talk Route")
