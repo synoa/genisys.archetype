@@ -53,9 +53,9 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <!-- Comment this if you need an embedded Tomcat -->
-            <artifactId>spring-boot-starter</artifactId>
+            <!-- <artifactId>spring-boot-starter</artifactId> -->
             <!-- Uncomment this if you need an embedded Tomcat -->
-            <!-- <artifactId>spring-boot-starter-web</artifactId> -->
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -81,6 +81,12 @@
             <groupId>com.github.mongobee</groupId>
             <artifactId>mongobee</artifactId>
             <version>${mongobee.version}</version>
+        </dependency>
+
+        <!-- Who am I -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <!-- Dependencies for Tests -->
