@@ -17,8 +17,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
 import static org.junit.Assert.assertEquals;
@@ -27,6 +26,7 @@ import static org.junit.Assert.assertEquals;
 @TestPropertySource("classpath:/application.properties")
 @SpringBootTest(classes = App.class)
 @UseAdviceWith
+@ActiveProfiles("test")
 public class GettingStartedRouteBuilderTest {
 
     @EndpointInject(uri = "mock:activemqTalk")
@@ -37,12 +37,6 @@ public class GettingStartedRouteBuilderTest {
 
     @Autowired
     private CamelContext context;
-
-    @Primary
-    @Bean
-    public MongoDB mongobee() {
-        return Mockito.mock(MongoDB.class);
-    }
 
     @Test
     public void testTalkRoute() throws Exception {
