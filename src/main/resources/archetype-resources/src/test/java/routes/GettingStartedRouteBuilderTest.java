@@ -3,7 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.routes;
 
-import com.mongodb.BasicDBObject;
 import ${package}.App;
 import ${package}.configurations.MongoDB;
 import org.apache.camel.CamelContext;
