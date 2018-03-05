@@ -16,8 +16,8 @@ public class GettingStartedRouteBuilder extends RouteBuilder {
         // @formatter:off
 
         from("timer:helloworld?period=5000").routeId("Hello World Route")
-            .setBody(constant("Hello Microservice World"))
-            .to("activemq:{{activemq.queue.prefix}}.talk")
+            .setBody(constant("Hello {{greeting.name}}"))
+            .to("activemq:{{activemq.queue.prefix}}.talk").id("talkQueue")
         ;
 
         from("activemq:{{activemq.queue.prefix}}.talk").routeId("Talk Route")
