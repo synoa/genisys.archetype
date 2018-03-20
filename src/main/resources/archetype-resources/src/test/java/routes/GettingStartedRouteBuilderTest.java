@@ -4,7 +4,6 @@
 package ${package}.routes;
 
 import ${package}.App;
-import ${package}.configurations.MongoDB;
 import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.ProducerTemplate;
@@ -14,7 +13,6 @@ import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.apache.camel.test.spring.UseAdviceWith;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -39,7 +37,7 @@ public class GettingStartedRouteBuilderTest {
     private CamelContext context;
 
     @Test
-    public void testTalkRoute() throws Exception {
+    public void testHelloWorldRoute() throws Exception {
 
         context.getRouteDefinition("Hello World Route").adviceWith(context, new AdviceWithRouteBuilder() {
 
