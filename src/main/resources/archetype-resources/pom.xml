@@ -83,7 +83,7 @@
             <version>${mongobee.version}</version>
         </dependency>
 
-        <!-- Who am I -->
+        <!-- Endpoints for Monitoring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
