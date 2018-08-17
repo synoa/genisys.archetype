@@ -13,9 +13,9 @@
 
     <properties>
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
-        <spotify.dockerfile.plugin.version>1.3.6</spotify.dockerfile.plugin.version>
-        <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
-        <camel.version>2.20.0</camel.version>
+        <spotify.dockerfile.plugin.version>1.4.4</spotify.dockerfile.plugin.version>
+        <spring.boot.version>1.5.8.RELEASE</spring.boot.version>
+        <camel.version>2.20.4</camel.version>
         <git.commit.id.version>2.2.1</git.commit.id.version>
         <mongobee.version>0.13</mongobee.version>
     </properties>
